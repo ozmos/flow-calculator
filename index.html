@@ -6,10 +6,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
 </head>
 
 <body>
+    <header>
+        <h1>Flow Calculator</h1>
+        <p class="description">
+            <!-- TODO: Expand description -->
+            Work out how many irrigation stations you need using Rainbird 3500 gear rotator sprinklers.
+    </header>
 
+    <main>
+        <form name="theForm" method="post" action="">
+            <fieldset>
+                <legend>Enter your Working pressure and flow rate</legend>
+                <p>
+                    <label for="pressure">Pressure (Bar)</label>
+                    <select id="pressure" name="pressure" size="1" required>
+            <option>1.7</option>
+            <option>2.0</option>
+            <option>2.5</option>
+          </select>
+                </p>
+                <p>
+                    <label for="flow-rate">Flow rate (Litres per minute)</label>
+                    <input type="number" id="flow-rate" name="flow-rate" required min="3" max="200" value="20">
+
+                </p>
+                <p>
+                    <button name="set" id="set">Set flow and pressure</button>
+
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>How many of each sprinkler do you need?</legend>
+                <table>
+                    <tr id="table-header">
+                        <th>Nozzle</th>
+                        <th>Number</th>
+                        <th>Throw</th>
+                        <th>Flow</th>
+                    </tr>
+                    <!-- TODO: prevent minus values in amount of nozzles -->
+                    <tr id="row-0.75" class="nozzle-row">
+                        <td class="nozzle"><label for="n-0.75">0.75</label></td>
+                        <td class="amount"><input type="number" id="n-0.75" name="n-0.75"></td>
+                        <td class="throw"></td>
+                        <td class="flow"></td>
+                    </tr>
+                    <tr id="row-1.0" class="nozzle-row">
+                        <td class="nozzle"><label for="n-1.0">1.0</label></td>
+                        <td class="amount"><input type="number" id="n-1.0" name="n-1.0"></td>
+                        <td class="throw"></td>
+                        <td class="flow"></td>
+                    </tr>
+                    <tr id="row-1.5" class="nozzle-row">
+                        <td class="nozzle"><label for="n-1.5">1.5</label></td>
+                        <td class="amount"><input type="number" id="n-1.5" name="n-1.5"></td>
+                        <td class="throw"></td>
+                        <td class="flow"></td>
+                    </tr>
+                    <tr id="row-2.0" class="nozzle-row">
+                        <td class="nozzle"><label for="n-2.0">2.0</label></td>
+                        <td class="amount"><input type="number" id="n-2.0" name="n-2.0"></td>
+                        <td class="throw"></td>
+                        <td class="flow"></td>
+                    </tr>
+                    <tr id="row-3.0" class="nozzle-row">
+                        <td class="nozzle"><label for="n-3.0">3.0</label></td>
+                        <td class="amount"><input type="number" id="n-3.0" name="n-3.0"></td>
+                        <td class="throw"></td>
+                        <td class="flow"></td>
+                    </tr>
+                    <tr id="row-4.0" class="nozzle-row">
+                        <td class="nozzle"><label for="n-4.0">4.0</label></td>
+                        <td class="amount"><input type="number" id="n-4.0" name="n-4.0"></td>
+                        <td class="throw"></td>
+                        <td class="flow"></td>
+                    </tr>
+
+                </table>
+                <p>
+                    <input type="submit" name="calculate" id="calculate" value="calculate stations">
+                </p>
+            </fieldset>
+        </form>
+    </main>
+
+    <script src="js/utility.js"></script>
+    <script src="js/nozzles.js"></script>
+    <script src="js/calculator.js"></script>
 </body>
 
 </html>
