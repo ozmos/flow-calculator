@@ -59,7 +59,7 @@ const nozzleData = {
       'flow' : 2.04 
     }
   },
-  '3.0' : {
+  '2.5' : {
     '0.75' : {
       'throw': 4.6,
       'flow' : 2.04 
