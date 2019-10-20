@@ -8,10 +8,12 @@ const adjusters = $$('.amount').map(cell => cell.querySelector('input[type="numb
 // Button for setting pressure and flow rate
 const set = $('#set');
 
-// initalise state to null
+
 /**
  * state 
  **/
+
+// initalise state to null
 const state = {
   pressure: null,
   nozzleData : null,
@@ -26,9 +28,6 @@ function updateState (key, value) {
 }
 
 
-/**
- * Applying correct data values 
- */
 // get value of throw or flow based on pressure TODO:refactor to not need cellName
 function addDataToCells (cellName, data, metric) {
   const cells = $$(cellName);
@@ -40,33 +39,12 @@ function addDataToCells (cellName, data, metric) {
   });
 }
  
-/**
- * load throw data and update current pressure and nozzle data
- */
 
-function setInititalValues(e) {
-  const pressure = $('#pressure').value;
-  const availableFlow = parseInt($('#flow-rate').value);
-  updateState('pressure', pressure);
-  updateState('nozzleData', nozzleData[pressure] );
-  updateState('availableFlow', availableFlow );
-  addDataToCells('.throw', state.nozzleData, 'throw');
-  // adjust total flow rates to reflect new pressure and/or flow
-  adjusters.forEach(input => updateSingleFlow(input));
-  sumFlow();
-  // adjust stations necessary to reflect new data
-  calculateStations();
-  preventExecution(e);
-}
 
 /**
  * Calculations
  */
-// update flow data when nozzle number is increased TODO: disable number inputs when pressure isn't set
-function updateSingleFlowEvent(e) {
-  updateSingleFlow(this);
-  preventExecution(e);
-}
+
 
 function updateSingleFlow(input) {
   const nozzleType = getNozzleTypeFromId(input.id);
@@ -92,36 +70,17 @@ function sumFlow () {
  
 }
 
-// sum Flow attached to event
-function sumFlowEvent (e) {
-  sumFlow();
-  preventExecution(e);
-}
-
 // Calculate number of stations necessary
 function calculateStations () {
   // there are no part stations in irrigation
   $('#stations').textContent = Math.ceil(state.totalFlow / state.availableFlow);
 }
 
-function calculateStationsEvent(e) {
-  calculateStations();
-  preventExecution(e);
-}
 
 
 
-/***
- * Event Listeners
- ***/
-
-// add event listener to set button
-
-set.addEventListener('click', setInititalValues, false);
-
-// add event listeners to nozzle adjsuster inputs 
 
 
-addListenersToArray(adjusters, ['change', 'change', 'change'], [updateSingleFlowEvent, sumFlowEvent, calculateStationsEvent]);
-/* adjusters.forEach(input => input.addEventListener('change', updateSingleFlow));
-adjusters.forEach(input => input.addEventListener('change', sumFlow)); */
+
+
+
