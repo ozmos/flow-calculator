@@ -3,6 +3,8 @@
 /**
  * Global variables
  */
+//the form itself
+const theForm = $('#theForm');
 // number inputs for increasing or decreasing the number of sprinklers
 const adjusters = $$('.amount').map(cell => cell.querySelector('input[type="number"]'));
 // Button for setting pressure and flow rate
@@ -76,6 +78,13 @@ function calculateStations () {
   $('#stations').textContent = Math.ceil(state.totalFlow / state.availableFlow);
 }
 
+// universal reset function
+function resetAllValues() {
+  setValuesOnArray('.flow', '0');
+  $('#total').textContent = '0';
+  $('#stations').textContent = '0';
+  theForm.reset();
+}
 
 
 

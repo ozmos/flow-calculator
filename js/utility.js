@@ -10,12 +10,15 @@ function $$ (selector) {
 
 // stop callbacks from executing on all browsers
 function preventExecution(e) {
-  if (e.preventDefault()) {
-    e.preventDefault();
-  } else {
-    e.returnValue = false;
+  if (e) {
+    if (e.preventDefault()) {
+      e.preventDefault();
+    } else {
+      e.returnValue = false;
+    }
+    return false;
   }
-  return false;
+  return;
 }
 
 // get nozzle type from id
@@ -37,3 +40,20 @@ function addListenersToArray (arr, events, callBacks) {
   }
 }
 
+// set all values on an array
+function setValuesOnArray(selector, value) {
+  $$(selector).forEach(el => el.textContent = value);
+}
+
+// for error and presentational functions 
+function conditionallyRemoveClass(element, className) {
+  if (element.classList.contains(className)) {
+    element.classList.remove(className);
+  }
+}
+
+function conditionallyAddClass(element, className) {
+  if (!element.classList.contains(className)) {
+    element.classList.add(className);
+  }
+}

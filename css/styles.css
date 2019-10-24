@@ -1,3 +1,10 @@
+/* variables */
+
+:root {
+    --highlight: #0100ff;
+    --error: red;
+}
+
 .clearfloat {
     font-size: 0px;
     margin: 0px;
@@ -8,4 +15,21 @@
     width: 0px;
     border: 0px none;
     line-height: 0px;
+}
+
+
+/* classes for js */
+
+.highlight {
+    box-shadow: 0px 0px 5px var(--highlight, #0100ff);
+    color: var(--highlight, #0100ff);
+}
+
+.amount input {
+    transition: all 5ms ease;
+}
+
+.error {
+    box-shadow: 0px 0px 5px var(--error, #0100ff);
+    color: var(--error, #0100ff);
 }

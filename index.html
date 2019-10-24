@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="css/styles.css" rel="stylesheet">
 
 </head>
 
@@ -51,37 +52,37 @@
                     <!-- TODO: prevent minus values in amount of nozzles -->
                     <tr id="row-0.75" class="nozzle-row">
                         <td class="nozzle"><label for="n-0.75">0.75</label></td>
-                        <td class="amount"><input type="number" id="n-0.75" name="n-0.75" value="0"></td>
+                        <td class="amount"><input type="number" id="n-0.75" name="n-0.75" value="0" min="0" disabled></td>
                         <td class="throw">0</td>
                         <td class="flow">0</td>
                     </tr>
                     <tr id="row-1.0" class="nozzle-row">
                         <td class="nozzle"><label for="n-1.0">1.0</label></td>
-                        <td class="amount"><input type="number" id="n-1.0" name="n-1.0"></td>
+                        <td class="amount"><input type="number" id="n-1.0" name="n-1.0" value="0" min="0" disabled></td>
                         <td class="throw">0</td>
                         <td class="flow">0</td>
                     </tr>
                     <tr id="row-1.5" class="nozzle-row">
                         <td class="nozzle"><label for="n-1.5">1.5</label></td>
-                        <td class="amount"><input type="number" id="n-1.5" name="n-1.5"></td>
+                        <td class="amount"><input type="number" id="n-1.5" name="n-1.5" value="0" min="0" disabled></td>
                         <td class="throw">0</td>
                         <td class="flow">0</td>
                     </tr>
                     <tr id="row-2.0" class="nozzle-row">
                         <td class="nozzle"><label for="n-2.0">2.0</label></td>
-                        <td class="amount"><input type="number" id="n-2.0" name="n-2.0"></td>
+                        <td class="amount"><input type="number" id="n-2.0" name="n-2.0" value="0" min="0" disabled></td>
                         <td class="throw">0</td>
                         <td class="flow">0</td>
                     </tr>
                     <tr id="row-3.0" class="nozzle-row">
                         <td class="nozzle"><label for="n-3.0">3.0</label></td>
-                        <td class="amount"><input type="number" id="n-3.0" name="n-3.0"></td>
+                        <td class="amount"><input type="number" id="n-3.0" name="n-3.0" value="0" min="0" disabled></td>
                         <td class="throw">0</td>
                         <td class="flow">0</td>
                     </tr>
                     <tr id="row-4.0" class="nozzle-row">
                         <td class="nozzle"><label for="n-4.0">4.0</label></td>
-                        <td class="amount"><input type="number" id="n-4.0" name="n-4.0"></td>
+                        <td class="amount"><input type="number" id="n-4.0" name="n-4.0" value="0" min="0" disabled></td>
                         <td class="throw">0</td>
                         <td class="flow">0</td>
                     </tr>
@@ -101,7 +102,7 @@
 
             <p>
                 <input type="submit" name="calculate" id="calculate" value="calculate stations">
-                <button id="reset">reset</button>
+                <input type="reset" id="resetAll" value="reset">
             </p>
 
         </form>
@@ -110,6 +111,7 @@
     <script src="js/utility.js"></script>
     <script src="js/nozzles.js"></script>
     <script src="js/calculator.js"></script>
+    <script src="js/errors.js"></script>
     <script src="js/init.js"></script>
 </body>
 

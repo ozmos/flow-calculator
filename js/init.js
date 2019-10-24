@@ -19,6 +19,11 @@ function setInititalValues(e) {
   preventExecution(e);
 }
 
+// reset all values
+function resetAllValuesEvent(e) {
+  resetAllValues();
+}
+
 // update flow data when nozzle number is increased TODO: disable number inputs when pressure isn't set
 function updateSingleFlowEvent(e) {
   updateSingleFlow(this);
@@ -36,10 +41,38 @@ function calculateStationsEvent(e) {
   preventExecution(e);
 }
 
+/* 
+error handling
+*/
+
+// number inputs
+function enableNumberInputs(e) {
+  enableInputs(adjusters, state.pressure, state.availableFlow);
+  preventExecution(e);
+}
+
+// highlight set button
+function highlightSetButton(e) {
+  highlightElement(set, state.pressure, state.availableFlow, 'highlight');
+  preventExecution(e);
+}
+
+function addError (e) {
+  this.classList.add('error');
+}
+
+function removeError (e) {
+  //if (e.propertyName !== 'transform') return;
+  this.classList.remove('error');
+  console.log(e);
+}
 // Initial setup, add event listeners:
 function init() {
+  enableNumberInputs();
+  highlightSetButton();
   set.addEventListener('click', setInititalValues, false);
-  addListenersToArray(adjusters, ['change', 'change', 'change'], [updateSingleFlowEvent, sumFlowEvent, calculateStationsEvent]);
-  
+  set.addEventListener('click', enableNumberInputs, false);
+  addListenersToArray(adjusters, ['change', 'change', 'change', 'click', 'transitionend'], [updateSingleFlowEvent, sumFlowEvent, calculateStationsEvent, addError, removeError]);
+  theForm.addEventListener('reset', resetAllValuesEvent, false);
 } // End of init() function.
 window.onload = init;
