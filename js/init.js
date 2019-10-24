@@ -58,13 +58,18 @@ function highlightSetButton(e) {
 }
 
 function addError (e) {
-  this.classList.add('error');
+  const condition = this.value <= 0;
+  highlightElement(this, !condition, !condition, 'error');
+
 }
 
 function removeError (e) {
-  //if (e.propertyName !== 'transform') return;
+ 
+
   this.classList.remove('error');
-  console.log(e);
+
+
+ 
 }
 // Initial setup, add event listeners:
 function init() {
