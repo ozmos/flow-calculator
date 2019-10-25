@@ -17,9 +17,20 @@ function highlightElement(element, condition1, condition2, className) {
   }
 }
 
-// remove transition so highlight only lasts a moment @link https://github.com/wesbos/JavaScript30/blob/master/01%20-%20JavaScript%20Drum%20Kit/index-FINISHED.html
-function removeTransition(e, className) {
-  if (e.propertyName !== 'transform') return;
-  this.classList.remove(className);
+
+// highlight set button
+function highlightSetButton() {
+  highlightElement(set, state.pressure, state.availableFlow, 'highlight');
+}
+
+// flash color when user tries to enter value below 0
+function addError () {
+  const condition = this.value <= 0;
+  highlightElement(this, !condition, !condition, 'error');
+  
+}
+
+function removeError (e) {
+  this.classList.remove('error');
 }
 

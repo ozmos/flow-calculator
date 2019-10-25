@@ -48,35 +48,20 @@ error handling
 // number inputs
 function enableNumberInputs(e) {
   enableInputs(adjusters, state.pressure, state.availableFlow);
+  highlightSetButton();
   preventExecution(e);
 }
 
-// highlight set button
-function highlightSetButton(e) {
-  highlightElement(set, state.pressure, state.availableFlow, 'highlight');
-  preventExecution(e);
-}
-
-function addError (e) {
-  const condition = this.value <= 0;
-  highlightElement(this, !condition, !condition, 'error');
-
-}
-
-function removeError (e) {
- 
-
-  this.classList.remove('error');
 
 
- 
-}
+
 // Initial setup, add event listeners:
 function init() {
   enableNumberInputs();
   highlightSetButton();
   set.addEventListener('click', setInititalValues, false);
   set.addEventListener('click', enableNumberInputs, false);
+ 
   addListenersToArray(adjusters, ['change', 'change', 'change', 'click', 'transitionend'], [updateSingleFlowEvent, sumFlowEvent, calculateStationsEvent, addError, removeError]);
   theForm.addEventListener('reset', resetAllValuesEvent, false);
 } // End of init() function.
