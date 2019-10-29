@@ -7,106 +7,120 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-    <header>
-        <h1>Flow Calculator</h1>
-        <p class="description">
-            <!-- TODO: Expand description -->
-            Work out how many irrigation stations you need using Rainbird 3500 gear rotator sprinklers.
-    </header>
+    <div class="outer">
+        <header>
+            <h1>Flow Calculator</h1>
+            <p class="description">
+                <!-- TODO: Expand description -->
+                Work out how many irrigation stations you need using Rainbird 3500 gear rotator sprinklers.
+        </header>
 
-    <main>
-        <form id="theForm" name="theForm" method="post" action="">
-            <fieldset>
-                <legend>Enter your Working pressure and flow rate</legend>
-                <p>
-                    <label for="pressure">Pressure (Bar)</label>
-                    <select id="pressure" name="pressure" size="1" required>
+        <main>
+            <form id="theForm" name="theForm" method="post" action="">
+                <fieldset class="form-header">
+                    <legend>Enter your Working pressure and flow rate</legend>
+                    <p>
+                        <label for="pressure">Pressure (Bar)</label>
+                        <select id="pressure" name="pressure" size="1" required>
             <option>1.7</option>
             <option>2.0</option>
             <option>2.5</option>
           </select>
-                </p>
-                <p>
-                    <label for="flow-rate">Flow rate (Litres per minute)</label>
-                    <input type="number" id="flow-rate" name="flow-rate" required min="3" max="200" value="20">
+                    </p>
+                    <p>
+                        <label for="flow-rate">Flow rate (Litres per minute)</label>
+                        <input type="number" id="flow-rate" name="flow-rate" required min="3" max="200" value="20">
 
-                </p>
-                <p>
-                    <button name="set" id="set">Set flow and pressure</button>
+                    </p>
+                    <p>
+                        <input class="button" type="button" name="set" id="set" value="Set flow and pressure">
 
-                </p>
-            </fieldset>
-            <fieldset>
-                <legend>How many of each sprinkler do you need?</legend>
-                <table>
-                    <tr id="table-header">
-                        <th>Nozzle</th>
-                        <th>Number</th>
-                        <th>Throw</th>
-                        <th>Flow</th>
-                    </tr>
-                    <!-- TODO: prevent minus values in amount of nozzles -->
-                    <tr id="row-0.75" class="nozzle-row">
-                        <td class="nozzle"><label for="n-0.75">0.75</label></td>
-                        <td class="amount"><input type="number" id="n-0.75" name="n-0.75" value="0" min="0" disabled></td>
-                        <td class="throw">0</td>
-                        <td class="flow">0</td>
-                    </tr>
-                    <tr id="row-1.0" class="nozzle-row">
-                        <td class="nozzle"><label for="n-1.0">1.0</label></td>
-                        <td class="amount"><input type="number" id="n-1.0" name="n-1.0" value="0" min="0" disabled></td>
-                        <td class="throw">0</td>
-                        <td class="flow">0</td>
-                    </tr>
-                    <tr id="row-1.5" class="nozzle-row">
-                        <td class="nozzle"><label for="n-1.5">1.5</label></td>
-                        <td class="amount"><input type="number" id="n-1.5" name="n-1.5" value="0" min="0" disabled></td>
-                        <td class="throw">0</td>
-                        <td class="flow">0</td>
-                    </tr>
-                    <tr id="row-2.0" class="nozzle-row">
-                        <td class="nozzle"><label for="n-2.0">2.0</label></td>
-                        <td class="amount"><input type="number" id="n-2.0" name="n-2.0" value="0" min="0" disabled></td>
-                        <td class="throw">0</td>
-                        <td class="flow">0</td>
-                    </tr>
-                    <tr id="row-3.0" class="nozzle-row">
-                        <td class="nozzle"><label for="n-3.0">3.0</label></td>
-                        <td class="amount"><input type="number" id="n-3.0" name="n-3.0" value="0" min="0" disabled></td>
-                        <td class="throw">0</td>
-                        <td class="flow">0</td>
-                    </tr>
-                    <tr id="row-4.0" class="nozzle-row">
-                        <td class="nozzle"><label for="n-4.0">4.0</label></td>
-                        <td class="amount"><input type="number" id="n-4.0" name="n-4.0" value="0" min="0" disabled></td>
-                        <td class="throw">0</td>
-                        <td class="flow">0</td>
-                    </tr>
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>How many of each sprinkler do you need?</legend>
+                    <table>
+                        <tr id="table-header">
+                            <th>Nozzle</th>
+                            <th>Number</th>
+                            <th>Throw</th>
+                            <th>Flow</th>
+                        </tr>
 
-                    <tr id="row-total" class="row-total">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td id="total">0</td>
-                    </tr>
-                </table>
-            </fieldset>
-            <div class="stations">
-                <p>Stations necessary:</p>
-                <span id="stations">0</span>
-            </div>
+                        <tr id="row-0.75" class="nozzle-row">
+                            <td class="nozzle"><label for="n-0.75">0.75</label></td>
+                            <td class="amount"><input type="number" id="n-0.75" name="n-0.75" value="0" min="0" disabled></td>
+                            <td class="throw">0</td>
+                            <td class="flow">0</td>
+                        </tr>
+                        <tr id="row-1.0" class="nozzle-row">
+                            <td class="nozzle"><label for="n-1.0">1.0</label></td>
+                            <td class="amount"><input type="number" id="n-1.0" name="n-1.0" value="0" min="0" disabled></td>
+                            <td class="throw">0</td>
+                            <td class="flow">0</td>
+                        </tr>
+                        <tr id="row-1.5" class="nozzle-row">
+                            <td class="nozzle"><label for="n-1.5">1.5</label></td>
+                            <td class="amount"><input type="number" id="n-1.5" name="n-1.5" value="0" min="0" disabled></td>
+                            <td class="throw">0</td>
+                            <td class="flow">0</td>
+                        </tr>
+                        <tr id="row-2.0" class="nozzle-row">
+                            <td class="nozzle"><label for="n-2.0">2.0</label></td>
+                            <td class="amount"><input type="number" id="n-2.0" name="n-2.0" value="0" min="0" disabled></td>
+                            <td class="throw">0</td>
+                            <td class="flow">0</td>
+                        </tr>
+                        <tr id="row-3.0" class="nozzle-row">
+                            <td class="nozzle"><label for="n-3.0">3.0</label></td>
+                            <td class="amount"><input type="number" id="n-3.0" name="n-3.0" value="0" min="0" disabled></td>
+                            <td class="throw">0</td>
+                            <td class="flow">0</td>
+                        </tr>
+                        <tr id="row-4.0" class="nozzle-row">
+                            <td class="nozzle"><label for="n-4.0">4.0</label></td>
+                            <td class="amount"><input type="number" id="n-4.0" name="n-4.0" value="0" min="0" disabled></td>
+                            <td class="throw">0</td>
+                            <td class="flow">0</td>
+                        </tr>
 
-            <p>
-                <input type="submit" name="calculate" id="calculate" value="calculate stations">
-                <input type="reset" id="resetAll" value="reset">
-            </p>
+                        <tr id="row-total" class="row-total">
+                            <td class="overflow-cell">
+                                Total Flow
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td id="total">0</td>
+                        </tr>
+                        <tr class="stations">
+                            <td class="overflow-cell">
+                                Stations necessary
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td id="stations">0</td>
+                        </tr>
+                    </table>
+                    <p>
+                        <input type="reset" class="button" id="resetAll" value="reset">
+                    </p>
+                </fieldset>
 
-        </form>
-    </main>
+
+
+            </form>
+        </main>
+
+        <footer>
+            <span>Social 1</span>
+            <span>Social 2</span>
+        </footer>
+    </div>
 
     <script src="js/utility.js"></script>
     <script src="js/nozzles.js"></script>
