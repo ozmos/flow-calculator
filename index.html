@@ -5,13 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Flow Calculator
+    </title>
+    <meta name="author" content="Osamu Morozumi">
+    <meta name="description" content="Prototype flow calculator for single type sprinkler">
+    <meta property="og:url" content="https://ozmos.github.io/flow-calculator/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Flow Calculator" />
+    <meta property="og:description" content="Prototype flow calculator for single type sprinkler" />
+    <meta property="og:image" content="https://ozmos.github.io/flow-calcultor/images/sprinklers.jpg" />
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
-
+    <script src="js/twitter.js"></script>
+    <!-- script to enable older browsers to understand html5 elements -->
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 
 <body>
+    <!-- facebook like button script -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0"></script>
     <div class="outer">
         <header>
             <h1>Flow Calculator</h1>
@@ -117,8 +132,19 @@
         </main>
 
         <footer>
-            <span>Social 1</span>
-            <span>Social 2</span>
+            <h2 class="social-sharing-buttons">
+                <div class="twitter">
+                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20Flow%20Calculator&hashtags=horticulture,irrigation,webdev,javaScript,css,html,frontend,fullstack&via=PerthDev&url=https://ozmos.github.io/flow-calculator">Tweet</a>
+                </div>
+                <div>
+                    <script src="https://platform.linkedin.com/in.js" type="text/javascript">
+                        lang: en_US
+                    </script>
+                    <script type="IN/Share" data-url="https://ozmos.github.io/flow-calculator/"></script>
+                </div>
+                <!-- facebook like -->
+                <div class="fb-like" data-href="https://www.facebook.com/pcwebsites" data-width="30" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false" data-colorscheme="light"></div>
+            </h2>
         </footer>
     </div>
 
