@@ -95,8 +95,8 @@
     }
     
     input:disabled {
-        background-color: lightgray;
-        color: var(--primary-color-text);
+        background-color: #d3d3d3bd;
+        color: #f7f4f4af;
     }
     /* table */
     
@@ -143,6 +143,11 @@
     #set {
         background-color: var(--primary-color);
         color: var(--primary-color-text);
+    }
+    /* footer */
+    
+    .footer-text {
+        font-size: 0.8rem;
     }
     /* social sharing */
     
