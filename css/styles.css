@@ -200,11 +200,6 @@ table input[type="number"] {
     margin: 0 var(--padding-0) 0 var(--padding-0);
 }
 
-.twitter {
-    /* even top with linkedin button which inherits padding from API script */
-    padding-top: 6px;
-}
-
 
 /* classes for js */
 

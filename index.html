@@ -15,7 +15,7 @@
     <meta property="og:description" content="Prototype flow calculator for single type sprinkler" />
     <meta property="og:image" content="https://ozmos.github.io/flow-calcultor/images/sprinklers.jpg" />
     <link href="css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat%7CRoboto&display=swap" rel="stylesheet">
     <script src="js/twitter.js"></script>
     <!-- script to enable older browsers to understand html5 elements -->
     <!--[if lt IE 9]>
@@ -36,16 +36,17 @@
         </header>
 
         <main>
-            <form id="theForm" name="theForm" method="post" action="">
+            <form id="theForm" name="theForm" method="post">
                 <fieldset class="form-header">
                     <legend>Enter your Working pressure and flow rate</legend>
                     <p>
                         <label for="pressure">Pressure (Bar)</label>
                         <select id="pressure" name="pressure" size="1" required>
-            <option>1.7</option>
-            <option>2.0</option>
-            <option>2.5</option>
-          </select>
+                            <option value="" disabled >Choose an option</option>
+                            <option value="1.7" selected >1.7</option>
+                            <option value="2.0" >2.0</option>
+                            <option value="2.5" >2.5</option>
+                        </select>
                     </p>
                     <p>
                         <label for="flow-rate">Flow rate (Litres per minute)</label>
@@ -132,20 +133,19 @@
         </main>
 
         <footer>
-            <h2 class="social-sharing-buttons">
+            <div class="social-sharing-buttons">
                 <div class="twitter">
                     <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20Flow%20Calculator&hashtags=horticulture,irrigation,webdev,javaScript,css,html,frontend,fullstack&via=PerthDev&url=https://ozmos.github.io/flow-calculator">Tweet</a>
                 </div>
                 <div>
-                    <script src="https://platform.linkedin.com/in.js" type="text/javascript">
-                        lang: en_US
+                    <script src="https://platform.linkedin.com/in.js">
                     </script>
                     <script type="IN/Share" data-url="https://ozmos.github.io/flow-calculator/"></script>
                 </div>
                 <!-- facebook like -->
                 <div class="fb-like" data-href="https://www.facebook.com/pcwebsites" data-width="30" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false" data-colorscheme="light"></div>
 
-            </h2>
+            </div>
             <p class="footer-text">&copy; <a href="https://portfolio.pcwebsites.com.au" target="blank">Osamu Morozumi</a> 2019</p>
         </footer>
     </div>
