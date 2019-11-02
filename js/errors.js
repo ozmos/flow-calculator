@@ -18,16 +18,32 @@ function highlightElement(element, condition1, condition2, className) {
 }
 
 
+
 // highlight set button
 function highlightSetButton() {
   highlightElement(set, state.pressure, state.availableFlow, 'highlight');
 }
 
 // flash color when user tries to enter value below 0
-function addError () {
+function addClickError (e) {
   const condition = this.value <= 0;
   highlightElement(this, !condition, !condition, 'error');
-  
+ 
+  preventExecution(e);
+}
+
+//prevent user from entering non-numerical or minus values
+function addKeyError (e) {
+  const regex1 = /Backspace|Digit\d/;
+/*   const regex2 = /Backspace/; */
+  console.log(e.code);
+  const condition = regex1.test(e.code);/*  || !regex2.test(e.code) */
+
+  highlightElement(this, condition, condition, 'error');
+  if (!condition) {
+    preventExecution(e);
+  }
+
 }
 
 function removeError (e) {

@@ -62,7 +62,7 @@ function init() {
   set.addEventListener('click', setInititalValues, false);
   set.addEventListener('click', enableNumberInputs, false);
  
-  addListenersToArray(adjusters, ['change', 'change', 'change', 'click', 'transitionend'], [updateSingleFlowEvent, sumFlowEvent, calculateStationsEvent, addError, removeError]);
+  addListenersToArray(adjusters, ['change', 'change', 'change', 'click', 'keydown', 'transitionend'], [updateSingleFlowEvent, sumFlowEvent, calculateStationsEvent, addClickError, addKeyError, removeError]);
   theForm.addEventListener('reset', resetAllValuesEvent, false);
 } // End of init() function.
 window.onload = init;

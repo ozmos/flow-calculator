@@ -217,6 +217,10 @@ table input[type="number"] {
     color: var(--error, red);
 }
 
+.error-msg {
+    font-size: 42px;
+}
+
 
 /* media breaks */
 
