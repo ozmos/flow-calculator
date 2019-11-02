@@ -31,7 +31,7 @@ function updateState (key, value) {
 }
 
 
-// get value of throw or flow based on pressure TODO:refactor to not need cellName
+// get value of throw or flow based on pressure 
 function addDataToCells (cellName, data, metric) {
   const cells = $$(cellName);
   // retrieve nozzle data
