@@ -1,194 +1,232 @@
-    /* variables */
-    
-     :root {
-        /* colors */
-        --primary-color-dark: #0288D1;
-        --primary-color: #03A9F4;
-        --primary-color-light: #B3E5FC;
-        --primary-color-text: #FFFFFF;
-        --accent-color: #4CAF50;
-        --primary-text-color: #212121;
-        --secondary-text-color: #757575;
-        --divider-color: #BDBDBD;
-        --highlight: #ffffff;
-        --error: red;
-        /* fonts */
-        --title-font: 'Montserrat', sans-serif;
-        --default-font: 'Roboto', sans-serif;
-        /* margins and paddings */
-        --padding-0: 4px;
-        --padding-1: 8px;
-        --padding-2: 12px;
-        --padding-3: 16px;
-        --padding-4: 20px;
-        --padding-5: 24px;
-        --padding-6: 28px;
-        --padding-7: 32px;
-        /* box shadows */
-        --box-shadow: 0px 2px 8px 3px rgba(7, 83, 124, 0.3);
-    }
-    /* universal styles */
-    
-    * {
-        box-sizing: border-box;
-    }
-    
+/***
+TODO: change cursor/pointer for interactive elements 
+
+*/
+
+
+/* variables */
+
+ :root {
+    /* colors */
+    --primary-color-dark: #0288D1;
+    --primary-color: #03A9F4;
+    --primary-color-light: #B3E5FC;
+    --primary-color-text: #FFFFFF;
+    --accent-color: #4CAF50;
+    --primary-text-color: #212121;
+    --secondary-text-color: #757575;
+    --divider-color: #BDBDBD;
+    --highlight: #ffffff;
+    --error: red;
+    /* fonts */
+    --title-font: 'Montserrat', sans-serif;
+    --default-font: 'Roboto', sans-serif;
+    /* margins and paddings */
+    --padding-0: 4px;
+    --padding-1: 8px;
+    --padding-2: 12px;
+    --padding-3: 16px;
+    --padding-4: 20px;
+    --padding-5: 24px;
+    --padding-6: 28px;
+    --padding-7: 32px;
+    /* box shadows */
+    --box-shadow: 0px 2px 8px 3px rgba(7, 83, 124, 0.3);
+    --box-shadow-highlight: 0px 0px 5px 2.5px var(--highlight, #0100ff);
+    --text-shadow-highlight: 0px 0px 3px var(--highlight, #0100ff);
+}
+
+
+/* universal styles */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(var(--primary-color-light), var(--primary-color)), white;
+    color: var(--primary-color-text);
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.1em;
+    font-family: var(--default-font);
+}
+
+a,
+a:visited {
+    color: var(--primary-color-text);
+}
+
+a:hover {
+    opacity: 0.85;
+    text-shadow: var(--text-shadow-highlight);
+}
+
+
+/* containers */
+
+.outer {
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--primary-color-dark, blue);
+    box-shadow: var(--box-shadow);
+}
+
+header {
+    padding: var(--padding-2);
+    margin-bottom: var(--padding-1);
+}
+
+
+/* titles */
+
+h1 {
+    font-family: var(--title-font);
+}
+
+
+/* form */
+
+form {
+    margin-top: 0;
+}
+
+fieldset {
+    margin-bottom: var(--padding-4);
+    border: 2px solid var(--divider-color, grey);
+    padding: var(--padding-2);
+}
+
+.form-header {
+    font-weight: 600;
+}
+
+legend {
+    font-weight: 600;
+}
+
+input,
+select {
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+    background-color: var(--primary-color-text);
+    color: var(--primary-text-color);
+    padding: var(--padding-0);
+}
+
+input:disabled {
+    background-color: #d3d3d3bd;
+    color: #f7f4f4af;
+}
+
+
+/* table */
+
+table {
+    margin-top: 0;
+    table-layout: fixed;
+    border-spacing: var(--padding-1);
+    border-collapse: separate;
+    text-align: justify;
+    width: 100%;
+}
+
+td,
+th {
+    padding-right: var(--padding-2);
+}
+
+table input[type="number"] {
+    width: 80px;
+}
+
+.overflow-cell {
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.row-total {
+    color: var(--primary-color-light);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.stations {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--highlight);
+}
+
+
+/* buttons */
+
+.button {
+    padding: var(--padding-1);
+}
+
+#set {
+    background-color: var(--primary-color);
+    color: var(--primary-color-text);
+}
+
+
+/* footer */
+
+.footer-text {
+    font-size: 0.8rem;
+}
+
+
+/* social sharing */
+
+.social-sharing-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.social-sharing-buttons * {
+    margin: 0 var(--padding-0) 0 var(--padding-0);
+}
+
+.twitter {
+    /* even top with linkedin button which inherits padding from API script */
+    padding-top: 6px;
+}
+
+
+/* classes for js */
+
+.highlight {
+    box-shadow: var(--box-shadow-highlight);
+    color: var(--highlight, #0100ff);
+}
+
+.amount input {
+    transition: all 0.07s;
+}
+
+.error {
+    box-shadow: 0px 0px 5px 5px var(--error, red);
+    color: var(--error, red);
+}
+
+
+/* media breaks */
+
+@media (min-width:769px) {
     body {
-        background: radial-gradient(var(--primary-color-light), var(--primary-color)), white;
-        color: var(--primary-color-text);
-        min-height: 100vh;
-        padding: 0;
-        margin: 0;
-        font-size: 16px;
-        line-height: 1.2;
-        letter-spacing: 0.1em;
-        font-family: var(--default-font);
+        padding: var(--padding-4);
     }
-    /* containers */
-    
     .outer {
-        position: relative;
-        max-width: 600px;
-        width: 100%;
-        margin: 0 auto;
-        background-color: var(--primary-color-dark, blue);
-        box-shadow: var(--box-shadow);
+        padding: 0 var(--padding-3) 0 var(--padding-3);
+        border: 2px solid var(--primary-color);
+        border-radius: var(--padding-2);
     }
-    
-    header {
-        padding: var(--padding-2);
-        margin-bottom: var(--padding-1);
-    }
-    /* titles */
-    
-    h1 {
-        font-family: var(--title-font);
-    }
-    /* form */
-    
-    form {
-        margin-top: 0;
-    }
-    
-    fieldset {
-        margin-bottom: var(--padding-4);
-        border: 2px solid var(--divider-color, grey);
-        padding: var(--padding-2);
-    }
-    
-    .form-header {
-        font-weight: 600;
-    }
-    
-    legend {
-        font-weight: 600;
-    }
-    
-    input,
-    select {
-        box-shadow: var(--box-shadow);
-        border: 1px solid var(--primary-color);
-        border-radius: 0.5rem;
-        background-color: var(--primary-color-text);
-        color: var(--primary-text-color);
-        padding: var(--padding-0);
-    }
-    
-    input:disabled {
-        background-color: #d3d3d3bd;
-        color: #f7f4f4af;
-    }
-    /* table */
-    
-    table {
-        margin-top: 0;
-        table-layout: fixed;
-        border-spacing: var(--padding-1);
-        border-collapse: separate;
-        text-align: justify;
-        width: 100%;
-    }
-    
-    td,
-    th {
-        padding-right: var(--padding-2);
-    }
-    
-    table input[type="number"] {
-        width: 80px;
-    }
-    
-    .overflow-cell {
-        white-space: nowrap;
-        overflow: visible;
-    }
-    
-    .row-total {
-        color: var(--primary-color-light);
-        font-weight: 600;
-        text-decoration: underline;
-    }
-    
-    .stations {
-        font-size: 1.1em;
-        font-weight: bold;
-        color: var(--highlight);
-    }
-    /* buttons */
-    
-    .button {
-        padding: var(--padding-1);
-    }
-    
-    #set {
-        background-color: var(--primary-color);
-        color: var(--primary-color-text);
-    }
-    /* footer */
-    
-    .footer-text {
-        font-size: 0.8rem;
-    }
-    /* social sharing */
-    
-    .social-sharing-buttons {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .social-sharing-buttons * {
-        margin: 0 var(--padding-0) 0 var(--padding-0);
-    }
-    
-    .twitter {
-        /* even top with linkedin button which inherits padding from API script */
-        padding-top: 6px;
-    }
-    /* classes for js */
-    
-    .highlight {
-        box-shadow: 0px 0px 5px 2.5px var(--highlight, #0100ff);
-        color: var(--highlight, #0100ff);
-    }
-    
-    .amount input {
-        transition: all 0.07s;
-    }
-    
-    .error {
-        box-shadow: 0px 0px 5px 5px var(--error, red);
-        color: var(--error, red);
-    }
-    /* media breaks */
-    
-    @media (min-width:769px) {
-        body {
-            padding: var(--padding-4);
-        }
-        .outer {
-            padding: 0 var(--padding-3) 0 var(--padding-3);
-            border: 2px solid var(--primary-color);
-            border-radius: var(--padding-2);
-        }
-    }
+}
