@@ -47,18 +47,13 @@ function enableNumberInputs(e) {
   preventExecution(e);
 }
 
-
-
-
 // Initial setup, add event listeners:
 function init() {
- 
   resetAllValues();
   enableNumberInputs();
   highlightSetButton();
   set.addEventListener('click', setInititalValues, false);
   set.addEventListener('click', enableNumberInputs, false);
- 
   addListenersToArray(adjusters, ['change', 'change', 'change', 'click', 'keydown', 'transitionend'], [updateSingleFlowEvent, sumFlowEvent, calculateStationsEvent, addClickError, addKeyError, removeError]);
   theForm.addEventListener('reset', resetAllValues, false);
  
