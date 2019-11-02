@@ -9,7 +9,8 @@ const theForm = $('#theForm');
 const adjusters = $$('.amount').map(cell => cell.querySelector('input[type="number"]'));
 // Button for setting pressure and flow rate
 const set = $('#set');
-
+// Flow rate adjuster
+const flowRate = $('#flow-rate');
 
 /**
  * state 

@@ -47,14 +47,29 @@ function enableNumberInputs(e) {
   preventExecution(e);
 }
 
+// prevent less than zero input
+function addClickErrorZero(e) {
+  addClickError(0, this);
+  preventExecution(e);
+}
+
+// prevent less than 3 input
+function addClickErrorThree(e) {
+  addClickError(3, this);
+  preventExecution(e);
+}
+
 // Initial setup, add event listeners:
 function init() {
   resetAllValues();
   enableNumberInputs();
   highlightSetButton();
-  set.addEventListener('click', setInititalValues, false);
-  set.addEventListener('click', enableNumberInputs, false);
-  addListenersToArray(adjusters, ['change', 'change', 'change', 'click', 'keydown', 'transitionend'], [updateSingleFlowEvent, sumFlowEvent, calculateStationsEvent, addClickError, addKeyError, removeError]);
+  flowRate.addEventListener('click', addClickErrorThree);
+  flowRate.addEventListener('transitionend', removeError);
+  flowRate.addEventListener('keydown', addKeyError);
+  theForm.addEventListener('submit', setInititalValues, false);
+  theForm.addEventListener('submit', enableNumberInputs, false);
+  addListenersToArray(adjusters, ['change', 'change', 'change', 'click', 'keydown', 'transitionend'], [updateSingleFlowEvent, sumFlowEvent, calculateStationsEvent, addClickErrorZero, addKeyError, removeError]);
   theForm.addEventListener('reset', resetAllValues, false);
  
 } // End of init() function.

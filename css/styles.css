@@ -208,6 +208,7 @@ table input[type="number"] {
     color: var(--highlight, #0100ff);
 }
 
+#flow-rate,
 .amount input {
     transition: all 0.07s;
 }

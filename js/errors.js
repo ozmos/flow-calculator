@@ -25,28 +25,26 @@ function highlightSetButton() {
 }
 
 // flash color when user tries to enter value below 0
-function addClickError (e) {
-  const condition = this.value <= 0;
-  highlightElement(this, !condition, !condition, 'error');
+function addClickError (limit, element) {
+  const condition = element.value <= limit;
+  console.log();
+  highlightElement(element, !condition, !condition, 'error');
  
-  preventExecution(e);
+ 
 }
 
 //prevent user from entering non-numerical or minus values
 function addKeyError (e) {
   const regex1 = /Backspace|Digit\d/;
-/*   const regex2 = /Backspace/; */
-  console.log(e.code);
-  const condition = regex1.test(e.code);/*  || !regex2.test(e.code) */
-
+  const condition = regex1.test(e.code);
   highlightElement(this, condition, condition, 'error');
   if (!condition) {
     preventExecution(e);
   }
-
 }
 
 function removeError (e) {
   this.classList.remove('error');
 }
+
 
