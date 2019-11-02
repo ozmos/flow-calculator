@@ -52,7 +52,7 @@ function updateSingleFlow(input) {
   const nozzleType = getNozzleTypeFromId(input.id);
   const flowRate = state.nozzleData[nozzleType]['flow'];
   // target correct nozzle
-  const amount = input.value;
+  const amount = input.value ? input.value : "0";
   // target correct flow value
   const flowCell = input.parentElement.parentElement.children[3];
   // update cell value to reflect number of nozzles 

@@ -175,6 +175,11 @@ table input[type="number"] {
     color: var(--primary-color-text);
 }
 
+#resetAll {
+    background-color: var(--accent-color);
+    color: var(--primary-color-text);
+}
+
 
 /* footer */
 

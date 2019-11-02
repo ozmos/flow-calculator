@@ -19,11 +19,6 @@ function setInititalValues(e) {
   preventExecution(e);
 }
 
-// reset all values
-function resetAllValuesEvent(e) {
-  resetAllValues();
-}
-
 // update flow data when nozzle number is increased TODO: disable number inputs when pressure isn't set
 function updateSingleFlowEvent(e) {
   updateSingleFlow(this);
@@ -57,12 +52,15 @@ function enableNumberInputs(e) {
 
 // Initial setup, add event listeners:
 function init() {
+ 
+  resetAllValues();
   enableNumberInputs();
   highlightSetButton();
   set.addEventListener('click', setInititalValues, false);
   set.addEventListener('click', enableNumberInputs, false);
  
   addListenersToArray(adjusters, ['change', 'change', 'change', 'click', 'keydown', 'transitionend'], [updateSingleFlowEvent, sumFlowEvent, calculateStationsEvent, addClickError, addKeyError, removeError]);
-  theForm.addEventListener('reset', resetAllValuesEvent, false);
+  theForm.addEventListener('reset', resetAllValues, false);
+ 
 } // End of init() function.
 window.onload = init;
