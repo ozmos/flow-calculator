@@ -71,6 +71,6 @@ function init() {
   theForm.addEventListener('submit', enableNumberInputs, false);
   addListenersToArray(adjusters, ['change', 'change', 'change', 'click', 'keydown', 'transitionend'], [updateSingleFlowEvent, sumFlowEvent, calculateStationsEvent, addClickErrorZero, addKeyError, removeError]);
   theForm.addEventListener('reset', resetAllValues, false);
- 
+  theForm.setAttribute('autocomplete', 'off');
 } // End of init() function.
 window.onload = init;
