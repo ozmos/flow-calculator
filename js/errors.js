@@ -35,18 +35,37 @@ function addClickError (limit, element) {
 
 //prevent user from entering non-numerical or minus values
 function addKeyError (e) {
-  const regex1 = /Backspace|Digit\d/;
-  const condition = regex1.test(e.code);
-  highlightElement(this, condition, condition, 'error');
-  if (!condition) {
-    preventExecution(e);
+  if (!detectmob()) {
+    const regex1 = /Backspace|Digit\d/;
+    const condition = regex1.test(e.code);
+    highlightElement(this, condition, condition, 'error');
+    if (!condition) {
+      preventExecution(e);
+    }
   }
+ 
 }
 
 function removeError (e) {
   this.classList.remove('error');
 }
 
+// detect if user is on mobile device from @link https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
+function detectmob() { 
+  if( navigator.userAgent.match(/Android/i)
+  || navigator.userAgent.match(/webOS/i)
+  || navigator.userAgent.match(/iPhone/i)
+  || navigator.userAgent.match(/iPad/i)
+  || navigator.userAgent.match(/iPod/i)
+  || navigator.userAgent.match(/BlackBerry/i)
+  || navigator.userAgent.match(/Windows Phone/i)
+  ){
+     return true;
+   }
+  else {
+     return false;
+   }
+ }
 
 
 
